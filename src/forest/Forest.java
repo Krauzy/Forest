@@ -1,6 +1,7 @@
 package forest;
 
 import forest.trees.b.BTree;
+import forest.trees.bplus.BPlusTree;
 import java.util.Random;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Random;
  */
 public class Forest {
     
-    public static int RULE = 2;
+    public static int RULE = 5;
     
     public Forest() {}
     
@@ -29,9 +30,19 @@ public class Forest {
         tree.inSort(tree.getRoot());
     }
     
+    public void BPlusTreeApp() {
+        Random rand = new Random();
+        BPlusTree tree = new BPlusTree();
+        for(int i = 0; i < 20; i++) {
+            tree.insert(rand.nextInt(98) + 1);
+        }
+        tree.show();
+    }
+    
     public static void main(String[] args) {
         Forest forest = new Forest();
-        forest.BTreeApp();
+        //forest.BTreeApp();
+        forest.BPlusTreeApp();
     }
     
 }
